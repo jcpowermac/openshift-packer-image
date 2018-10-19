@@ -1,4 +1,4 @@
-FROM centos:7
+FROM openshift/jenkins-slave-base-centos7
 
 RUN yum -y install qemu-kvm git wget \
                    ansible unzip python-requests && \
