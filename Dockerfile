@@ -1,4 +1,6 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM openshift/jenkins-agent-nodejs-8-centos7:v3.11
+
+USER root
 
 RUN yum -y install qemu-kvm git wget \
                    ansible unzip python-requests && \
