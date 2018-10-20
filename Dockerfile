@@ -7,4 +7,8 @@ RUN yum -y install qemu-kvm git wget \
 
 ENV APP_ROOT=/opt/app-root
 COPY bin/ ${APP_ROOT}/bin/
-RUN ${APP_ROOT}/bin/download_packer.sh
+RUN ${APP_ROOT}/bin/download_packer.sh && \
+    chown -R 1001:0 $HOME && \
+    chmod -R g+rw $HOME
+
+USER 1001
