@@ -9,7 +9,7 @@ RUN yum -y install qemu-kvm git wget \
     yum clean all && \
     rm -rf /var/cache/yum && \
     ${APP_ROOT}/bin/download_packer.sh && \
-    mkdir -p /build/output && \
+    mkdir -p /build && \
     chown -R 1001:0 /build && \
     chgrp -R 0 /build
 
