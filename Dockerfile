@@ -4,6 +4,8 @@ USER root
 
 ENV APP_ROOT=/opt/app-root
 COPY bin/ ${APP_ROOT}/bin/
+
+RUN echo "kvm:x:36:qemu,default" >> /etc/group
 RUN yum -y install qemu-kvm git wget \
                    ansible unzip python-requests && \
     yum clean all && \
@@ -12,9 +14,7 @@ RUN yum -y install qemu-kvm git wget \
     mkdir -p /build && \
     chown -R 1001:0 /build && \
     chgrp -R 0 /build && \
-    chmod -R g=u /build && \
-    usermod -a -G kvm default
-
+    chmod -R g=u /build 
 
 
 USER 1001
