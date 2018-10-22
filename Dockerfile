@@ -11,7 +11,8 @@ RUN yum -y install qemu-kvm git wget \
     ${APP_ROOT}/bin/download_packer.sh && \
     mkdir -p /build && \
     chown -R 1001:0 /build && \
-    chgrp -R 0 /build
+    chgrp -R 0 /build && \
+    chmod -R g=u /build 
 
 
 USER 1001
