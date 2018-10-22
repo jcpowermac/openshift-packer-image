@@ -8,6 +8,10 @@ RUN yum -y install qemu-kvm git wget \
                    ansible unzip python-requests && \
     yum clean all && \
     rm -rf /var/cache/yum && \
-    ${APP_ROOT}/bin/download_packer.sh
+    ${APP_ROOT}/bin/download_packer.sh && \
+    mkdir -p /build/output && \
+    chown -R 1001:0 /build && \
+    chgrp -R 0 /build
+
 
 USER 1001
