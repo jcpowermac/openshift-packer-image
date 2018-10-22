@@ -12,7 +12,9 @@ RUN yum -y install qemu-kvm git wget \
     mkdir -p /build && \
     chown -R 1001:0 /build && \
     chgrp -R 0 /build && \
-    chmod -R g=u /build 
+    chmod -R g=u /build && \
+    usermod -a -G kvm default
+
 
 
 USER 1001
